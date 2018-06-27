@@ -24,7 +24,7 @@ rules:
     - as-needed
   brace-style:
     - error
-    - stroustrup
+    - 1tbs
   comma-dangle:
     - error
     - only-multiline
@@ -35,12 +35,15 @@ rules:
   no-plusplus: off
   no-underscore-dangle: off
   no-unused-vars: warn
+  no-multiple-empty-lines: off
   quotes:
-    - error
+    - warn
     - single
   semi: off
+  space-before-function-paren: off
 
 globals:
+  _hmt: true
   document: false
   window: false
   localStorage: true

@@ -1,23 +1,25 @@
 <template lang="pug">
-  div#app
-    img(src="~@assets/logo.jpg")
-    router-view
+  
+  <div id="app">
+  
+    <router-view />
+  </div>
 </template>
 
 <script>
-  import '@lib'
-  export default {
-    name: 'app'
+export default {
+  name: 'app',
+  data() { },
+  created: function () {
   }
+};
 </script>
 
 <style lang="postcss">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    text-align: center;
-    margin-top: 60px;
-    & .hello{
-      color: red;
-    }
-  }
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 </style>

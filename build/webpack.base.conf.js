@@ -3,6 +3,10 @@ const webpack = require('webpack')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin')
+const WebpackBaiduTongjiPlugin = require("./webpack.baidu.tongji.plugin");
+
+//防止css中图片路径错误
+const deployURL = 'http://your.website.css.path/';
 
 module.exports = {
   entry: utils.getEntries(utils.resolve(config.path.viewsPath, '**/*.js')),
@@ -63,19 +67,22 @@ module.exports = {
           loader: 'url-loader',
           query: {
             limit: 10240,
+            publicPath: process.env.NODE_ENV === 'production' ? deployURL : './',
             name: utils.assetsPath('img/[name].[hash:7].[ext]')
           }
         },
-          {
-            loader: 'image-webpack-loader',
-            query: {
+        {
+          loader: 'image-webpack-loader',
+          query: {
+            mozjpeg: {
               progressive: true,
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              }
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 4
             }
           }
+        }
         ]
       },
       {
@@ -96,6 +103,7 @@ module.exports = {
 // 不是测试环境，则添加Dll依赖
 if (process.env.BABEL_ENV !== 'test') {
   module.exports.plugins.push(
+    new WebpackBaiduTongjiPlugin(),
     new webpack.DllReferencePlugin({
       context: '/',
       manifest: require(utils.resolve(config.path.dllPath, `vendors.json`))

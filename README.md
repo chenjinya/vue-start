@@ -1,14 +1,7 @@
 # vue-start
 
-> A Vue.js Start
-> - 适用于单页与多页应用.
-
-----
-<b>ie9+ 用户请转至：[avalon-webpack-start](https://github.com/sayll/avalon-webpack-start)</b>
-
-<b>React 用户请转至：[react-webpack-start](https://github.com/sayll/react-webpack-start)</b>
-
-<b>低版本IE 用户请转至：[ie-webpack-start](https://github.com/sayll/ie-webpack-start)</b>
+** CSS中图片路径容易出现问题，需要在 `webpack.base.conf.js`中定义部署后的图片路径地址
+** 百度统计需要在 `webpack.baidu.tongji.plugin.js` 中填写自己的统计hash
 
 ## Build Setup
 
