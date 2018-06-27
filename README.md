@@ -1,12 +1,12 @@
 # vue-start
 
-** CSS中图片路径容易出现问题，需要在 `webpack.base.conf.js`中定义部署后的图片路径地址
-** 百度统计需要在 `webpack.baidu.tongji.plugin.js` 中填写自己的统计hash
+* CSS中图片路径容易出现问题，需要在 `webpack.base.conf.js`中定义部署后的图片路径地址
+* 百度统计需要在 `webpack.baidu.tongji.plugin.js` 中填写自己的统计hash
 
 ## Build Setup
 
 ``` bash
-$ npm install                  # Install project dependencies
+$ npm install                  # Install project dependencies or `yarn`
 $ npm start                    # open server
 $ npm run deploy               # Compile and launch
 ```
